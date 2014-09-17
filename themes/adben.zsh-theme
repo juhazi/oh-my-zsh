@@ -67,7 +67,7 @@ function precmd {
     #gets the fortune
     ps1_fortune () {
         #Choose from all databases, regardless of whether they are considered "offensive"
-        fortune -a
+        ""
     }
     #obtains the tip
     ps1_command_tip () {
