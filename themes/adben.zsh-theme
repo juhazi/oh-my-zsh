@@ -69,17 +69,12 @@ function precmd {
         #Choose from all databases, regardless of whether they are considered "offensive"
         ""
     }
-    #obtains the tip
+    #obtains the tip 
     ps1_command_tip () {
         wget -qO - http://www.commandlinefu.com/commands/random/plaintext | sed 1d | sed '/^$/d'
-    }
+    }  
     prompt_header () {
-        if [[ "true" == "$ENABLE_COMMAND_TIP" ]]; then
-            ps1_command_tip
-        else
-            ps1_fortune
-        fi
-    }
+    }   
     PROMPT_HEAD="${RED_START}${PR_YELLOW}$(prompt_header)${PR_RESET}"
     # set a simple variable to show when in screen
     if [[ -n "${WINDOW}" ]]; then
@@ -99,8 +94,11 @@ prompt_context () {
 set_prompt () {
     # required for the prompt
     setopt prompt_subst
-    autoload zsh/terminfo
-
+    autoload colors zsh/terminfo
+    if [[ "$terminfo[colors]" -gt 8 ]]; then
+        colors
+    fi 
+    
     # ######### PROMPT #########
     PROMPT='${PROMPT_HEAD}
 ${RED_START}$(prompt_context)
