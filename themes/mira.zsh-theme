@@ -6,13 +6,13 @@ local current_dir='%{$terminfo[bold]$fg[blue]%} %~%{$reset_color%}'
 
 local nvm_node='%{$fg[green]%}‹node-$(nvm_prompt_info)›%{$reset_color%}'
 
-local jenv_java='%{$fg[blue]%}‹$(jenv_prompt_info)›%{$reset_color%}'
+# local jenv_java='%{$fg[blue]%}‹$(jenv_prompt_info)›%{$reset_color%}'
 
 local git_branch='$(git_prompt_info)'
 
 local rvm_ruby='$(ruby_prompt_info)'
 
-PROMPT="╭─${user_host} ${current_dir} ${nvm_node} ${rvm_ruby} ${jenv_java} ${git_branch}
+PROMPT="╭─${user_host} ${current_dir} ${nvm_node} ${rvm_ruby} ${git_branch}
 ╰─%B$%b "
 RPS1="${return_code}"
 
